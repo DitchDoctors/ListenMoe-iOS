@@ -6,6 +6,10 @@ import 'dart:core';
 import 'package:web_socket_channel/io.dart';
 /* import 'package:http/http.dart' as http; */
 import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
+import 'package:video_player/video_player.dart';
+import 'package:chewie/chewie.dart';
+import 'package:flutter_lock_screen/flutter_lock_screen.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -435,7 +439,7 @@ class _FAQ extends State<FAQ> {
                     fontWeight: FontWeight.bold,
                   )),
               SizedBox(height: 7),
-              Text(
+           /*    Text(
                   "I am thankful for all donations as I code in my freetime and don't get paid. You can donate to me to encourage me to work on the app, and pay for the certificate to keep it on the app store using the button below. You can also donate to the site that we get our data from at listen.moe",
                   style: TextStyle(
                     color: Colors.white,
@@ -452,7 +456,7 @@ class _FAQ extends State<FAQ> {
                         fontWeight: FontWeight.bold,
                         color: Colors.white)),
                 onPressed: _paypal,
-              ),
+              ), */
             ])));
   }
 }
@@ -625,3 +629,4 @@ class SongArtist {
     //    image: parsedJson['image']);
   }
 }
+

@@ -85,7 +85,7 @@ class FlutterRadio {
       _playerController = new StreamController.broadcast();
     }
 
-    _channel.setMethodCallHandler((MethodCall call) {
+    _channel.setMethodCallHandler((MethodCall call) async {
       switch (call.method) {
         case "updateProgress":
           Map<String, dynamic> result = jsonDecode(call.arguments);
