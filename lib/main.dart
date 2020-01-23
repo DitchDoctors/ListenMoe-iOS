@@ -1,11 +1,18 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'package:flutter_radio/flutter_radio.dart';
+import 'package:listenmoe/Controllers/main_radio.dart';
+import 'package:listenmoe/Controllers/timer.dart';
+import 'package:rxdart/rxdart.dart';
+
+import 'package:rxdart/subjects.dart';
+import 'dart:async';
 import 'dart:core';
 import 'package:web_socket_channel/io.dart';
-/* import 'package:http/http.dart' as http; */
 import 'package:url_launcher/url_launcher.dart';
+
+import 'Models/radio_model.dart';
+import 'constants.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -13,24 +20,8 @@ void main() {
   ));
 }
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-/*     Map data;
-  List userData;
-
-  Future getData() async {
-    http.Response response =
-        await http.get("https://hentaiglare.com/HentaiGlare.json");
-    data = json.decode(utf8.decode(response.bodyBytes));
-    setState(() {
-      userData = data["data"];
-    });
-  } */
-
+class HomePage extends StatelessWidget {
+  
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: new Color(0xFF17162E),
@@ -105,30 +96,58 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class Jpop extends StatefulWidget {
+
+
+
+
+
+
+
+class Jpop extends StatefulWidget  {
   @override
   _JpopState createState() => _JpopState();
 }
-
+ const int heartbeat = 35;
 class _JpopState extends State<Jpop> {
-  final channel = IOWebSocketChannel.connect('wss://listen.moe/gateway_v2');
-  final channel2 = IOWebSocketChannel.connect('wss://listen.moe/gateway_v2',
-      pingInterval: Duration(seconds: 3));
+
+  SongInfo _songInfo;
+  
+  
+  @override 
+  void dispose() {
+    super.dispose();
+    FlutterRadio.stop();
+  }
+  // final channel2 = IOWebSocketChannel.connect('wss://listen.moe/gateway_v2',
+  //     pingInterval: Duration(seconds: 3));
   String url = "https://listen.moe/fallback";
+
+  final radio = MainRadio();
+
 
   @override
   void initState() {
     super.initState();
     audioStart();
+
+    const beat = const Duration(seconds: heartbeat);
+    Timer.periodic(beat, (_) => radio.keepAlive(true));
+
   }
 
   Future<void> audioStart() async {
-    await FlutterRadio.audioStart();
-    print('Audio Start OK');
+    await FlutterRadio.audioStart()
+    .whenComplete(() => FlutterRadio.play(url: url));
+  
   }
+  
+
+  
+
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: new Color(0xFF17162E),
       appBar: AppBar(backgroundColor: new Color(0xFF17162E)),
@@ -145,21 +164,27 @@ class _JpopState extends State<Jpop> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                StreamBuilder(
-                  stream: channel.stream,
+                StreamBuilder<SongInfo>(
+                  stream: radio.songData,
                   builder: (context, snapshot) {
-                    return Text(
+                    if (snapshot.hasData) {
+
+                        return Column(
+                          children: <Widget>[
+
+                     Text(
                       snapshot.hasData
-                          ? '${new SongInfo.fromJson(jsonDecode(snapshot.data)).d.song.title}'
+                          ? '${snapshot.data.d.song.title}'
                           : 'Unable to fetch data. Please try again shortly',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 22.0,
                         // fontWeight: FontWeight.bold,
                       ),
-                    );
-                  },
-                ),
+                    ),
+
+
+
                 new Text(
                   "Artist",
                   style: TextStyle(
@@ -168,21 +193,31 @@ class _JpopState extends State<Jpop> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                StreamBuilder(
-                  stream: channel2.stream,
-                  builder: (context, snapshot) {
-                    return Text(
-                      snapshot.hasData
-                          ? '${new SongInfo.fromJson(jsonDecode(snapshot.data)).d.song.artists.first.name}'
-                          : 'Unable to fetch data. Please try again shortly',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22.0,
-                        // fontWeight: FontWeight.bold,
-                      ),
-                    );
+
+
+                          Text(
+                              '${snapshot.data.d.song.artists?.first?.name ?? '???'}', 
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 22.0,
+                            // fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                          ],
+                        );
+                                            
+                    }
+                    return Center(
+                    child: Text('The stream could not be returned'),
+                  );
+                  
                   },
+                   
                 ),
+                     
+            
+                
+                
                 SizedBox(
                   height: 7,
                 ),
@@ -196,7 +231,11 @@ class _JpopState extends State<Jpop> {
                           fontSize: 23.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () => FlutterRadio.play(url: url),
+                  onPressed: () async { 
+                      bool playing = await FlutterRadio.isPlaying();
+                      if (!playing)
+                        FlutterRadio.play(url: url);
+                  }
                 ),
                 RaisedButton(
                   shape: new RoundedRectangleBorder(
@@ -208,7 +247,11 @@ class _JpopState extends State<Jpop> {
                           fontSize: 23.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () => FlutterRadio.pause(url: url),
+                  onPressed: () async  { 
+                   bool playing = await FlutterRadio.isPlaying();
+                      if (playing)
+                        FlutterRadio.pause(url: url);
+                  },
                 ),
               ]),
             )),
@@ -234,6 +277,10 @@ class _KpopState extends State<Kpop> {
   void initState() {
     super.initState();
     audioStart();
+        FlutterRadio.stop();
+
+
+    
   }
 
   Future<void> audioStart() async {
@@ -241,10 +288,11 @@ class _KpopState extends State<Kpop> {
     print('Audio Start OK');
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: new Color(0xFF17162E),
+        backgroundColor:  moeColor,
         appBar: AppBar(backgroundColor: new Color(0xFF17162E)),
         body: Center(
           child: new Container(
@@ -466,162 +514,4 @@ _paypal() async {
   }
 }
 
-class SongInfo {
-  int op;
-  D d;
-  String t;
 
-  SongInfo({this.op, this.d, this.t});
-
-  factory SongInfo.fromJson(Map<String, dynamic> parsedJson) {
-    return SongInfo(
-        op: parsedJson['op'],
-        d: D.fromJson(parsedJson['d']),
-        t: parsedJson['t']);
-  }
-}
-
-class D {
-  SongArtist artist;
-  Song song;
-  dynamic requester;
-  dynamic event;
-  String startTime;
-  List<LastPlayed> lastPlayed;
-  int listeners;
-  D(
-      {this.song,
-      this.requester,
-      this.event,
-      this.startTime,
-      this.lastPlayed,
-      this.listeners,
-      this.artist});
-  factory D.fromJson(Map<String, dynamic> parsedJson) {
-    return D(
-        song: Song.fromJson(parsedJson['song']),
-        artist: SongArtist.fromJson(parsedJson['song'])
-        /*requester : parsedJson['requester'],
-        event : parsedJson ['event'],
-        startTime: parsedJson['startTime'],
-        lastPlayed : parsedJson[LastPlayed.fromJson(parsedJson['lastPlayed'])],
-        listeners : parsedJson ['listeners']
-        */
-        );
-  }
-}
-
-class LastPlayed {
-  int id;
-  String title;
-  List<dynamic> sources;
-  List<LastPlayedArtist> artists;
-  List<Album> albums;
-  int duration;
-
-  LastPlayed({
-    this.id,
-    this.title,
-    this.sources,
-    this.artists,
-    this.albums,
-    this.duration,
-  });
-
-  factory LastPlayed.fromJson(Map<String, dynamic> parsedJson) {
-    return LastPlayed(
-        id: parsedJson['id'],
-        title: parsedJson['title'],
-        sources: parsedJson['sources'],
-        artists: parsedJson['artists'],
-        albums: parsedJson['albums'],
-        duration: parsedJson['duration']);
-  }
-}
-
-class Album {
-  int id;
-  String name;
-  dynamic nameRomaji;
-  String image;
-
-  Album({
-    this.id,
-    this.name,
-    this.nameRomaji,
-    this.image,
-  });
-
-  factory Album.fromJson(Map<String, dynamic> parsedJson) {
-    return Album(
-        id: parsedJson['id'],
-        name: parsedJson['name'],
-        nameRomaji: parsedJson['nameRomaji'],
-        image: parsedJson['image']);
-  }
-}
-
-class LastPlayedArtist {
-  int id;
-  String name;
-  String nameRomaji;
-  String image;
-
-  LastPlayedArtist({
-    this.id,
-    this.name,
-    this.nameRomaji,
-    this.image,
-  });
-}
-
-class Song {
-  int id;
-  String title;
-  List<dynamic> sources;
-  List<SongArtist> artists;
-  List<Album> albums;
-  int duration;
-
-  Song({
-    this.id,
-    this.title,
-    this.sources,
-    this.artists,
-    this.albums,
-    this.duration,
-  });
-
-  factory Song.fromJson(Map<String, dynamic> parsedJson) {
-    return Song(
-        //  id: parsedJson['id'],
-        title: parsedJson['title'],
-        //   sources : parsedJson ['sources'],
-        artists: List<SongArtist>.from(
-            parsedJson['artists'].map((x) => SongArtist.fromJson(x)))
-        //   albums : parsedJson[Album.fromJson(parsedJson['albums'])],
-        //  duration : parsedJson ['duration']
-        );
-  }
-}
-
-class SongArtist {
-  int id;
-  String name;
-  String nameRomaji;
-  String image;
-
-  SongArtist({
-    this.id,
-    this.name,
-    this.nameRomaji,
-    this.image,
-  });
-  factory SongArtist.fromJson(Map<String, dynamic> parsedJson) {
-    return SongArtist(
-        //   id: parsedJson['id'],
-        name: parsedJson['name']);
-    //    nameRomaji: parsedJson['nameRomaji'],
-    //    image: parsedJson['image']);
-  }
-}
