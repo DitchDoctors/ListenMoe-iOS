@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
+import 'package:listenmoe/Models/enums.dart';
 import 'package:listenmoe/Models/radio_model.dart';
+import 'package:listenmoe/constants.dart';
 import 'package:web_socket_channel/io.dart';
 
 
@@ -22,7 +25,13 @@ mixin _Transformer on Object {
 
 
  class MainRadio extends Object with _Transformer  {
-  final channel = IOWebSocketChannel.connect('wss://listen.moe/gateway_v2', pingInterval: const Duration(seconds: 8));
+   final RadioChoice radioChoice;
+   IOWebSocketChannel channel;
+   MainRadio({@required this.radioChoice})  {
+   channel = IOWebSocketChannel.connect(radioChoice == RadioChoice.jpop ? jpopSocket : kpopSocket , pingInterval: const Duration(seconds: 8));
+   }
+
+  
 
 
   Stream<SongInfo> get songData => channel.stream.transform(streamer);
