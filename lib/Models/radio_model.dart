@@ -21,7 +21,7 @@ class D {
   dynamic event;
   String startTime;
   List<LastPlayed> lastPlayed;
-  
+
 
   int listeners;
   D(
@@ -37,10 +37,11 @@ class D {
         song: Song.fromJson(parsedJson['song']),
         artist: SongArtist.fromJson(parsedJson['song']),
         startTime: (parsedJson['startTime']),
+        //lastPlayed : List<LastPlayed>.from(parsedJson['lastPlayed'].map((x) => LastPlayed.fromJson(x))),
+        
         /*requester : parsedJson['requester'],
         event : parsedJson ['event'],
         startTime: parsedJson['startTime'],
-        lastPlayed : parsedJson[LastPlayed.fromJson(parsedJson['lastPlayed'])],
         listeners : parsedJson ['listeners']
         */
         );
@@ -50,8 +51,8 @@ class D {
 class LastPlayed {
   int id;
   String title;
-  List<dynamic> sources;
-  List<LastPlayedArtist> artists;
+  List<SongArtist> sources;
+  List<Album> artists;
   List<Album> albums;
   int duration;
 
@@ -68,9 +69,9 @@ class LastPlayed {
     return LastPlayed(
         id: parsedJson['id'],
         title: parsedJson['title'],
-        sources: parsedJson['sources'],
-        artists: parsedJson['artists'],
-        albums: parsedJson['albums'],
+        sources: List<SongArtist>.from(parsedJson['sources'].map((x) => Album.fromJson(x))),
+        artists: List<Album>.from(parsedJson['artists'].map((x) => Album.fromJson(x))),
+        albums: List<Album>.from( parsedJson['albums'].map((x) => Album.fromJson(x))),
         duration: parsedJson['duration']);
   }
 }
@@ -78,7 +79,7 @@ class LastPlayed {
 class Album {
   int id;
   String name;
-  dynamic nameRomaji;
+  String nameRomaji;
   String image;
 
   Album({
@@ -114,7 +115,7 @@ class LastPlayedArtist {
 class Song {
   int id;
   String title;
-  List<dynamic> sources;
+  List<SongArtist> sources;
   List<SongArtist> artists;
   List<Album> albums;
   int duration;
@@ -132,10 +133,10 @@ class Song {
     return Song(
         //  id: parsedJson['id'],
         title: parsedJson['title'],
-        //   sources : parsedJson ['sources'],
+           sources : List<SongArtist>.from(parsedJson ['sources'].map((x) => SongArtist.fromJson(x))),
         artists: List<SongArtist>.from(
             parsedJson['artists'].map((x) => SongArtist.fromJson(x))),
-        //   albums : parsedJson[Album.fromJson(parsedJson['albums'])],
+            albums: List<Album>.from(parsedJson['albums'].map((x) => Album.fromJson(x))),
           duration : parsedJson ['duration']
         );
   }
