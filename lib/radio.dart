@@ -92,9 +92,11 @@ class FlutterRadio {
       
     }
 
+
       
     _channel.setMethodCallHandler((MethodCall call) {
       print('call here');
+    _channel.setMethodCallHandler((MethodCall call) async {
       switch (call.method) {
         case "updateProgress":
           Map<String, dynamic> result = jsonDecode(call.arguments);
