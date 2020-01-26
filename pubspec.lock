@@ -22,13 +22,17 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0"
+
+  audio_service:
+
   audioplayer:
+
     dependency: "direct main"
     description:
-      name: audioplayer
+      name: audio_service
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.2"
+    version: "0.5.7"
   boolean_selector:
     dependency: transitive
     description:
@@ -90,6 +94,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_isolate:
+    dependency: transitive
+    description:
+      name: flutter_isolate
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0+11"
   flutter_launcher_icons:
     dependency: "direct main"
     description:
@@ -198,6 +209,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.5"
+  rxdart:
+    dependency: "direct main"
+    description:
+      name: rxdart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.23.1"
   screen:
     dependency: transitive
     description:
@@ -308,6 +326,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  uuid:
+    dependency: transitive
+    description:
+      name: uuid
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.4"
   vector_math:
     dependency: transitive
     description:
@@ -350,6 +375,9 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.5.0"
+sdks:
+  dart: ">=2.6.0 <3.0.0"
+  flutter: ">=1.9.1+hotfix.4 <2.0.0"
   yaml:
     dependency: transitive
     description:

@@ -9,7 +9,7 @@ class FlutterRadio {
   static const MethodChannel _channel = const MethodChannel('flutter_radio');
   static StreamController<PlayStatus> _playerController;
   /// Value ranges from 0 to 120
-  Stream<PlayStatus> get onPlayerStateChanged => _playerController.stream;
+ static Stream<PlayStatus> get onPlayerStateChanged => _playerController.stream;
 
   static bool _isPlaying = false;
 
@@ -32,6 +32,8 @@ class FlutterRadio {
     }
   }
 
+  
+
   static Future<void> play({@required String url}) async {
     try {
       String result =
@@ -40,7 +42,9 @@ class FlutterRadio {
       });
       print('result: $result');
 
+
       _setPlayerCallback();
+
 
       if (FlutterRadio._isPlaying) {
         throw Exception('Player is already playing.');
@@ -51,6 +55,7 @@ class FlutterRadio {
     } catch (err) {
       throw Exception(err);
     }
+    
   }
 
   static Future<void> pause({@required String url}) async {
@@ -82,18 +87,26 @@ class FlutterRadio {
 
   static Future<void> _setPlayerCallback() async {
     if (_playerController == null) {
+      print('new player');
       _playerController = new StreamController.broadcast();
+      
     }
 
+
+      
+    _channel.setMethodCallHandler((MethodCall call) {
+      print('call here');
     _channel.setMethodCallHandler((MethodCall call) async {
       switch (call.method) {
         case "updateProgress":
           Map<String, dynamic> result = jsonDecode(call.arguments);
-          _playerController.add(new PlayStatus.fromJSON(result));
+          _playerController.sink.add(new PlayStatus.fromJSON(result));
+          print(result);
           break;
         default:
           throw new ArgumentError('Unknown method ${call.method}');
       }
+      return null;
     });
   }
 

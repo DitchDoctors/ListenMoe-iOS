@@ -1,40 +1,53 @@
-import 'dart:convert';
+import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'package:flutter_radio/flutter_radio.dart';
+import 'package:listenmoe/Controllers/main_radio.dart';
+import 'package:listenmoe/Controllers/player_controller.dart';
+import 'package:listenmoe/Models/enums.dart';
+import 'package:listenmoe/Requests/listenMoe+requests.dart';
+import 'package:listenmoe/constants.dart';
+import 'dart:async';
 import 'dart:core';
-import 'package:web_socket_channel/io.dart';
-/* import 'package:http/http.dart' as http; */
 import 'package:url_launcher/url_launcher.dart';
+import 'Models/player.dart';
+import 'Models/radio_model.dart';
+
+ThemeData get _appTheme => ThemeData(
+      scaffoldBackgroundColor: moeColor,
+      textTheme: TextTheme(
+        title: TextStyle(
+          color: Colors.white,
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+        ),
+        subhead: TextStyle(
+          color: Colors.white,
+          fontSize: 18,
+          fontWeight: FontWeight.w400,
+        ),
+        subtitle: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.w300,
+          fontSize: 16,
+        ),
+      ),
+    );
 import 'package:http/http.dart' as http;
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 import 'package:flutter_lock_screen/flutter_lock_screen.dart';
 
+
 void main() {
   runApp(MaterialApp(
+    theme: _appTheme,
     home: HomePage(),
   ));
 }
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
 
-class _HomePageState extends State<HomePage> {
-/*     Map data;
-  List userData;
 
-  Future getData() async {
-    http.Response response =
-        await http.get("https://hentaiglare.com/HentaiGlare.json");
-    data = json.decode(utf8.decode(response.bodyBytes));
-    setState(() {
-      userData = data["data"];
-    });
-  } */
-
+class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: new Color(0xFF17162E),
@@ -65,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                         {
                           Navigator.of(context).push(MaterialPageRoute<Null>(
                               builder: (BuildContext context) {
-                            return new Jpop();
+                            return PlayerController(radioChoice: RadioChoice.jpop,);
                           }));
                         }
                       }),
@@ -83,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                         {
                           Navigator.of(context).push(MaterialPageRoute<Null>(
                               builder: (BuildContext context) {
-                            return new Kpop();
+                             return PlayerController(radioChoice: RadioChoice.kpop,);
                           }));
                         }
                       }),
@@ -109,232 +122,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class Jpop extends StatefulWidget {
-  @override
-  _JpopState createState() => _JpopState();
-}
 
-class _JpopState extends State<Jpop> {
-  final channel = IOWebSocketChannel.connect('wss://listen.moe/gateway_v2');
-  final channel2 = IOWebSocketChannel.connect('wss://listen.moe/gateway_v2',
-      pingInterval: Duration(seconds: 3));
-  String url = "https://listen.moe/fallback";
-
-  @override
-  void initState() {
-    super.initState();
-    audioStart();
-  }
-
-  Future<void> audioStart() async {
-    await FlutterRadio.audioStart();
-    print('Audio Start OK');
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: new Color(0xFF17162E),
-      appBar: AppBar(backgroundColor: new Color(0xFF17162E)),
-      body: Center(
-        child: new Container(
-            margin: const EdgeInsets.all(15.0),
-            child: new SingleChildScrollView(
-              child: Column(children: <Widget>[
-                new Text(
-                  "Title",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                StreamBuilder(
-                  stream: channel.stream,
-                  builder: (context, snapshot) {
-                    return Text(
-                      snapshot.hasData
-                          ? '${new SongInfo.fromJson(jsonDecode(snapshot.data)).d.song.title}'
-                          : 'Unable to fetch data. Please try again shortly',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22.0,
-                        // fontWeight: FontWeight.bold,
-                      ),
-                    );
-                  },
-                ),
-                new Text(
-                  "Artist",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                StreamBuilder(
-                  stream: channel2.stream,
-                  builder: (context, snapshot) {
-                    return Text(
-                      snapshot.hasData
-                          ? '${new SongInfo.fromJson(jsonDecode(snapshot.data)).d.song.artists.first.name}'
-                          : 'Unable to fetch data. Please try again shortly',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22.0,
-                        // fontWeight: FontWeight.bold,
-                      ),
-                    );
-                  },
-                ),
-                SizedBox(
-                  height: 7,
-                ),
-                RaisedButton(
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(10.0),
-                  ),
-                  color: Colors.red,
-                  child: Text('Play',
-                      style: TextStyle(
-                          fontSize: 23.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () => FlutterRadio.play(url: url),
-                ),
-                RaisedButton(
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(10.0),
-                  ),
-                  color: Colors.red,
-                  child: Text('Pause',
-                      style: TextStyle(
-                          fontSize: 23.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () => FlutterRadio.pause(url: url),
-                ),
-              ]),
-            )),
-      ),
-    );
-  }
-}
-
-class Kpop extends StatefulWidget {
-  @override
-  _KpopState createState() => _KpopState();
-}
-
-class _KpopState extends State<Kpop> {
-  final channel =
-      IOWebSocketChannel.connect('wss://listen.moe/kpop/gateway_v2');
-  final channel2 =
-      IOWebSocketChannel.connect('wss://listen.moe/kpop/gateway_v2');
-  var songInfo;
-  String url = "https://listen.moe/kpop/fallback";
-
-  @override
-  void initState() {
-    super.initState();
-    audioStart();
-  }
-
-  Future<void> audioStart() async {
-    await FlutterRadio.audioStart();
-    print('Audio Start OK');
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: new Color(0xFF17162E),
-        appBar: AppBar(backgroundColor: new Color(0xFF17162E)),
-        body: Center(
-          child: new Container(
-            margin: const EdgeInsets.all(15.0),
-            child: new SingleChildScrollView(
-                child: Column(
-              children: <Widget>[
-                new Text(
-                  "Title",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                StreamBuilder(
-                  stream: channel.stream,
-                  builder: (context, snapshot) {
-                    return Text(
-                      snapshot.hasData
-                          ? '${new SongInfo.fromJson(jsonDecode(snapshot.data)).d.song.title}'
-                          : 'Unable to fetch data. Please try again shortly',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22.0,
-                        // fontWeight: FontWeight.bold,
-                      ),
-                    );
-                  },
-                ),
-                new Text(
-                  "Artist",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                StreamBuilder(
-                  stream: channel2.stream,
-                  builder: (context, snapshot) {
-                    return Text(
-                      snapshot.hasData
-                          ? '${new SongInfo.fromJson(jsonDecode(snapshot.data)).d.song.artists.first.name}'
-                          : 'Unable to fetch data. Please try again shortly',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22.0,
-                        // fontWeight: FontWeight.bold,
-                      ),
-                    );
-                  },
-                ),
-                SizedBox(
-                  height: 7,
-                ),
-                RaisedButton(
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(10.0),
-                  ),
-                  color: Colors.red,
-                  child: Text('Play',
-                      style: TextStyle(
-                          fontSize: 23.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () => FlutterRadio.play(url: url),
-                ),
-                RaisedButton(
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(10.0),
-                  ),
-                  color: Colors.red,
-                  child: Text('Pause',
-                      style: TextStyle(
-                          fontSize: 23.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () => FlutterRadio.pause(url: url),
-                ),
-              ],
-            )),
-          ),
-        ));
-  }
-}
 
 class FAQ extends StatefulWidget {
   @override
@@ -345,8 +133,10 @@ class _FAQ extends State<FAQ> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: new Color(0xFF17162E),
-        appBar: AppBar(backgroundColor: new Color(0xFF17162E)),
+        backgroundColor: moeColor,
+        appBar: AppBar(
+          backgroundColor: moeColor,
+        ),
         body: Container(
             width: double.maxFinite,
             height: double.maxFinite,
@@ -469,6 +259,7 @@ _paypal() async {
     throw 'Could not launch $url';
   }
 }
+
 
 class SongInfo {
   int op;
