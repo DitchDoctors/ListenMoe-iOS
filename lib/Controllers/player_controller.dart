@@ -1,29 +1,20 @@
 import 'dart:async';
-
-import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_radio/flutter_radio.dart';
+import 'package:listenmoe/Animator/flip_cards.dart';
 import 'package:listenmoe/Models/enums.dart';
 import 'package:listenmoe/Models/player.dart';
 import 'package:listenmoe/Models/radio_model.dart';
-import 'package:listenmoe/Requests/listenMoe+requests.dart';
 
 import '../constants.dart';
 import 'main_radio.dart';
 
 class PlayerController extends StatefulWidget {
-   
-    
-    final RadioChoice radioChoice;
-    final int heartbeat = 35;
-
-
-
-    PlayerController({@required this.radioChoice, Key key}) : super(key: key);
-
+  final RadioChoice radioChoice;
+  final int heartbeat = 35;
+  PlayerController({@required this.radioChoice, Key key}) : super(key: key);
   @override
   State<StatefulWidget> createState() => _PlayerStateController(radioChoice);
-
 }
 
 class _PlayerStateController extends State<PlayerController> {
@@ -33,24 +24,15 @@ class _PlayerStateController extends State<PlayerController> {
   _PlayerStateController(RadioChoice choice) {
     _radio = MainRadio(radioChoice: choice);
   }
-    // _PlayerStateController() {
-    //   _radio = MainRadio(
-    //   radioChoice: widget.radioChoice,
-    // );
-    // }
-
-   
-  @override
 
   void initState() {
     super.initState();
-    _player = Player(url: widget.radioChoice == RadioChoice.jpop ? jpopURL : kpopURL );
+    _player =
+        Player(url: widget.radioChoice == RadioChoice.jpop ? jpopURL : kpopURL);
 
-  //Beat heart as soon as audio starts;
-  _player.audioStart().whenComplete(() =>
-  Timer.periodic(Duration(seconds: widget.heartbeat), (_) => _radio.keepAlive(true))
-  );
-  
+    //Beat heart as soon as audio starts;
+    _player.audioStart().whenComplete(() => Timer.periodic(
+        Duration(seconds: widget.heartbeat), (_) => _radio.keepAlive(true)));
   }
 
   @override
@@ -60,9 +42,9 @@ class _PlayerStateController extends State<PlayerController> {
     _isPlaying = true;
   }
 
-@override
+  @override
   Widget build(BuildContext context) {
-  String url = widget.radioChoice == RadioChoice.jpop ? jpopURL : kpopURL;
+    String url = widget.radioChoice == RadioChoice.jpop ? jpopURL : kpopURL;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: moeColor,
@@ -70,8 +52,9 @@ class _PlayerStateController extends State<PlayerController> {
         flexibleSpace: Center(
           child: Padding(
             padding: const EdgeInsets.only(top: 30),
-                      child: SizedBox(
-              height: 40, width: 40,
+            child: SizedBox(
+              height: 40,
+              width: 40,
               child: Image.asset(listenMoeIcon),
             ),
           ),
@@ -96,51 +79,8 @@ class _PlayerStateController extends State<PlayerController> {
                           child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                SizedBox(
-                                  height: 206,
-                                  width: 206,
-                                  child: Card(
-                                    clipBehavior: Clip.antiAlias,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(7.0)),
-                                    color: moeColor,
-                                    elevation: 2,
-                                    child: ((_songData
-                                                    .d.song.albums?.isNotEmpty ??
-                                                false) &&
-                                            _songData.d.song.albums?.first
-                                                    ?.image !=
-                                                null)
-                                        ? Image.network(
-                                            'https://cdn.listen.moe/covers/${_songData.d.song.albums.first.image}',
-                                            headers: ListenMoeRequests.headers,
-                                            fit: BoxFit.cover,
-                                            loadingBuilder:
-                                                (context, child, percentage) {
-                                              if (percentage == null)
-                                                return child;
-                                              return Center(
-                                                child: CircularProgressIndicator(
-                                                  value: percentage
-                                                              .expectedTotalBytes !=
-                                                          null
-                                                      ? percentage
-                                                              .cumulativeBytesLoaded /
-                                                          percentage
-                                                              .expectedTotalBytes
-                                                      : Image.asset(
-                                            listenMoeIcon,
-                                            fit: BoxFit.cover,
-                                          ),
-                                                ),
-                                              );
-                                            },
-                                          )
-                                        : Image.asset(
-                                            listenMoeIcon,
-                                            fit: BoxFit.cover,
-                                          ),
-                                  ),
+                                FlipCards(
+                                  songData: _songData,
                                 ),
                                 Column(
                                   children: <Widget>[
@@ -148,19 +88,21 @@ class _PlayerStateController extends State<PlayerController> {
                                       height: 50,
                                     ),
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.fromLTRB(8, 0, 8, 30),
+                                      padding: const EdgeInsets.fromLTRB(
+                                          8, 0, 8, 30),
                                       child: Text(
                                         snapshot.hasData
-                                            ? '${snapshot.data.d.song.albums.isNotEmpty ? snapshot.data.d.song.albums.first.nameRomaji ?? snapshot.data.d.song.title  : snapshot.data.d.song.title}'
+                                            ? '${snapshot.data.d.song.albums.isNotEmpty ? snapshot.data.d.song.albums.first.nameRomaji ?? snapshot.data.d.song.title : snapshot.data.d.song.title}'
                                             : 'Unable to fetch data. Please try again shortly',
-                                        style: Theme.of(context).textTheme.title,
+                                        style:
+                                            Theme.of(context).textTheme.title,
                                         textAlign: TextAlign.center,
                                       ),
                                     ),
                                     Text(
                                       '${snapshot.data.d.song.artists?.first?.name ?? '???'}',
-                                      style: Theme.of(context).textTheme.subhead,
+                                      style:
+                                          Theme.of(context).textTheme.subhead,
                                     ),
                                   ],
                                 ),
@@ -198,14 +140,17 @@ class _PlayerStateController extends State<PlayerController> {
                                     child: Padding(
                                       padding: const EdgeInsets.only(top: 8.0),
                                       child: Row(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: <Widget>[
                                           SizedBox(
                                             height: 63,
                                             width: 63,
                                             child: Card(
                                               clipBehavior: Clip.antiAlias,
-                                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(6)),
                                               elevation: 6,
                                               child: Image.asset(
                                                 listenMoeIcon,
@@ -214,19 +159,26 @@ class _PlayerStateController extends State<PlayerController> {
                                             ),
                                           ),
                                           Expanded(
-                                                                                      child: Padding(
-                                              padding: const EdgeInsets.fromLTRB(8, 5, 5, 5),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.fromLTRB(
+                                                      8, 5, 5, 5),
                                               child: Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: <Widget>[
                                                   Text(
                                                     'Last Played',
-                                                    style: Theme.of(context).textTheme.subtitle,
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .subtitle,
                                                   ),
                                                   Spacer(),
                                                   Text(
                                                     'Past data to be placed here, but thats not all hence we add more data, and if thats not the case it fades',
-                                                    style: Theme.of(context).textTheme.subtitle,
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .subtitle,
                                                     maxLines: 2,
                                                     overflow: TextOverflow.fade,
                                                   ),
@@ -238,14 +190,15 @@ class _PlayerStateController extends State<PlayerController> {
                                       ),
                                     ),
                                   ),
-
                                   Container(
                                     height: 275,
-                                                                      child: ListView.builder(
-                                                                        physics: NeverScrollableScrollPhysics(),
-                                      itemCount: snapshot.data.d.lastPlayed?.length ?? 0,
-                                      itemBuilder: (context, index) => 
-                                      Container(
+                                    child: ListView.builder(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      itemCount:
+                                          snapshot.data.d.lastPlayed?.length ??
+                                              0,
+                                      itemBuilder: (context, index) =>
+                                          Container(
                                         height: 50,
                                         color: Colors.greenAccent,
                                       ),
