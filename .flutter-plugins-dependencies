@@ -1,1 +1,3 @@
-{"_info":"// This is a generated file; do not edit or check into version control.","dependencyGraph":[{"name":"audio_service","dependencies":["flutter_isolate"]},{"name":"flutter_isolate","dependencies":[]},{"name":"flutter_radio","dependencies":[]},{"name":"url_launcher","dependencies":[]}]}
+
+{"_info":"// This is a generated file; do not edit or check into version control.","dependencyGraph":[{"name":"audioplayer","dependencies":[]},{"name":"flutter_radio","dependencies":[]},{"name":"keyboard_visibility","dependencies":[]},{"name":"screen","dependencies":[]},{"name":"shared_preferences","dependencies":["shared_preferences_macos","shared_preferences_web"]},{"name":"shared_preferences_macos","dependencies":[]},{"name":"shared_preferences_web","dependencies":[]},{"name":"url_launcher","dependencies":[]},{"name":"video_player","dependencies":["video_player_web"]},{"name":"video_player_web","dependencies":[]}]}
+
