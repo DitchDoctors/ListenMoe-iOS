@@ -25,8 +25,11 @@ class _PlayerStateController extends State<PlayerController> {
     _radio = MainRadio(radioChoice: choice);
   }
 
+  ValueNotifier<bool> _notifier;
+
   void initState() {
     super.initState();
+    _notifier = ValueNotifier<bool>(_isPlaying);
     _player =
         Player(url: widget.radioChoice == RadioChoice.jpop ? jpopURL : kpopURL);
 
@@ -38,8 +41,14 @@ class _PlayerStateController extends State<PlayerController> {
   @override
   void dispose() {
     super.dispose();
-    FlutterRadio.stop();
+    _dispose();
     _isPlaying = true;
+  }
+
+  void _dispose() async {
+    if (await FlutterRadio.isPlaying()) {
+      FlutterRadio.stop();
+    }
   }
 
   @override
@@ -111,13 +120,22 @@ class _PlayerStateController extends State<PlayerController> {
                                   padding: const EdgeInsets.only(bottom: 100.0),
                                   child: FloatingActionButton(
                                     backgroundColor: Colors.red,
-                                    onPressed: () => setState(() {
-                                      _isPlaying = !_isPlaying;
+                                    onPressed: () {
                                       FlutterRadio.playOrPause(url: url);
-                                    }),
-                                    child: _isPlaying
-                                        ? Icon(Icons.pause)
-                                        : Icon(Icons.play_arrow),
+                                      _notifier.value = !_notifier.value;
+
+                                      
+                                    },
+                                      
+                                    child: ValueListenableBuilder<bool>(
+                                      valueListenable: _notifier,
+                                      builder: (context, value, _) {
+
+                                        return value
+                                          ? Icon(Icons.pause)
+                                          : Icon(Icons.play_arrow);
+                                      },
+                                    ),
                                   ),
                                 ),
                               ]),
@@ -125,7 +143,7 @@ class _PlayerStateController extends State<PlayerController> {
                         DraggableScrollableSheet(
                           initialChildSize: 0.11,
                           minChildSize: 0.11,
-                          maxChildSize: 0.5,
+                          maxChildSize: 0.35,
                           expand: false,
                           builder: (context, controller) =>
                               SingleChildScrollView(
@@ -168,20 +186,16 @@ class _PlayerStateController extends State<PlayerController> {
                                                     CrossAxisAlignment.start,
                                                 children: <Widget>[
                                                   Text(
-                                                    'Last Played',
+                                                    'Last Played Items',
                                                     style: Theme.of(context)
                                                         .textTheme
-                                                        .subtitle,
+                                                        .title,
                                                   ),
                                                   Spacer(),
-                                                  Text(
-                                                    'Past data to be placed here, but thats not all hence we add more data, and if thats not the case it fades',
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .subtitle,
-                                                    maxLines: 2,
-                                                    overflow: TextOverflow.fade,
-                                                  ),
+                                                  
+                                                  
+
+
                                                 ],
                                               ),
                                             ),
@@ -191,17 +205,30 @@ class _PlayerStateController extends State<PlayerController> {
                                     ),
                                   ),
                                   Container(
-                                    height: 275,
+                                    height: 150,
                                     child: ListView.builder(
                                       physics: NeverScrollableScrollPhysics(),
                                       itemCount:
                                           snapshot.data.d.lastPlayed?.length ??
                                               0,
-                                      itemBuilder: (context, index) =>
-                                          Container(
-                                        height: 50,
-                                        color: Colors.greenAccent,
-                                      ),
+                                      itemBuilder: (context, index) {
+                                        if (snapshot.data.d.lastPlayed != null && snapshot.data.d.lastPlayed.isNotEmpty) {
+                                          var item = snapshot.data.d.lastPlayed[index];
+                                          var time = Duration(seconds: item.duration);
+                                          return ListTile(
+                                            title: Text(item.title, style: Theme.of(context).textTheme.subhead),
+                                            leading: CircleAvatar(
+                                              backgroundImage: item.albums.isNotEmpty && item.albums?.first?.image != null ? NetworkImage('https://cdn.listen.moe/covers/${item.albums?.first?.image}') : AssetImage(listenMoeIcon),
+
+                                            ),
+                                            trailing: Text('${time.inMinutes} minutes ', style: Theme.of(context).textTheme.subtitle),
+
+                                          );
+                                        }
+                                        return Container();
+                                      }
+                                         
+                                      
                                     ),
                                   )
                                 ],

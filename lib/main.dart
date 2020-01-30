@@ -26,10 +26,6 @@ ThemeData get _appTheme => ThemeData(
         ),
       ),
     );
-import 'package:http/http.dart' as http;
-import 'package:video_player/video_player.dart';
-import 'package:chewie/chewie.dart';
-import 'package:flutter_lock_screen/flutter_lock_screen.dart';
 
 
 void main() {
