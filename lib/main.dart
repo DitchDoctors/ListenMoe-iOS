@@ -11,6 +11,8 @@ import 'dart:core';
 import 'package:url_launcher/url_launcher.dart';
 import 'Models/player.dart';
 import 'Models/radio_model.dart';
+import 'package:listenmoe/Pages/FAQ.dart';
+import 'package:listenmoe/Pages/Credits.dart';
 
 ThemeData get _appTheme => ThemeData(
       scaffoldBackgroundColor: moeColor,
@@ -39,8 +41,6 @@ void main() {
     home: HomePage(),
   ));
 }
-
-
 
 class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -73,7 +73,9 @@ class HomePage extends StatelessWidget {
                         {
                           Navigator.of(context).push(MaterialPageRoute<Null>(
                               builder: (BuildContext context) {
-                            return PlayerController(radioChoice: RadioChoice.jpop,);
+                            return PlayerController(
+                              radioChoice: RadioChoice.jpop,
+                            );
                           }));
                         }
                       }),
@@ -91,7 +93,9 @@ class HomePage extends StatelessWidget {
                         {
                           Navigator.of(context).push(MaterialPageRoute<Null>(
                               builder: (BuildContext context) {
-                             return PlayerController(radioChoice: RadioChoice.kpop,);
+                            return PlayerController(
+                              radioChoice: RadioChoice.kpop,
+                            );
                           }));
                         }
                       }),
@@ -109,7 +113,25 @@ class HomePage extends StatelessWidget {
                         {
                           Navigator.of(context).push(MaterialPageRoute<Null>(
                               builder: (BuildContext context) {
-                            return new FAQ();
+                            return FAQ();
+                          }));
+                        }
+                      }),
+                  RaisedButton(
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(10.0),
+                      ),
+                      color: Colors.red,
+                      child: Text('Credits',
+                          style: TextStyle(
+                              fontSize: 23.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white)),
+                      onPressed: () {
+                        {
+                          Navigator.of(context).push(MaterialPageRoute<Null>(
+                              builder: (BuildContext context) {
+                            return Credits();
                           }));
                         }
                       }),
@@ -117,136 +139,16 @@ class HomePage extends StatelessWidget {
   }
 }
 
-
-
-class FAQ extends StatefulWidget {
-  @override
-  _FAQ createState() => _FAQ();
-}
-
-class _FAQ extends State<FAQ> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: moeColor,
-        appBar: AppBar(
-          backgroundColor: moeColor,
-        ),
-        body: Container(
-            width: double.maxFinite,
-            height: double.maxFinite,
-            child: ListView(padding: EdgeInsets.all(30.0), children: <Widget>[
-              Text("Q Is this [app] offical",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.bold,
-                  )),
-              SizedBox(height: 7),
-              Text(
-                  "A This app is unoffical but the Listen Moe dev has given permission ^^",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                  )),
-              SizedBox(height: 20),
-              Text(
-                  "Q On the site i can login and add favorites and such where is that option?",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.bold,
-                  )),
-              SizedBox(height: 7),
-              Text(
-                  "A Im new to programming so that stuff will be added but itll take time",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                  )),
-              SizedBox(height: 20),
-              Text("Q How can i report a bug?",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.bold,
-                  )),
-              SizedBox(height: 7),
-              Text(
-                  "A You can email me at Support@hentaiglare.com Or post in the listen.moe discord and tag @DitchDoctor",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                  )),
-              SizedBox(height: 20),
-              Text("Q Is this legal? How do you get the data?",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.bold,
-                  )),
-              SizedBox(height: 7),
-              Text(
-                  "A The short answer is We dont host any content its all taken from Listen.Moe our app is both safe and legal :) ",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                  )),
-              SizedBox(
-                height: 7,
-              ),
-              Text(
-                  "Now for the legal answer We take the info and streams from websites and make it easier for users to find great music and stream it. This app and any of it's staff/developers don't host any of the content found inside it. Any and all images, streams and information found on the app are taken from it's source Listen.moe This app or it's owner (DitchDoctor) isn't liable for any misuse of any of the contents found inside or outside of the app and cannot be held responsible for the distribution of any of the contents found inside the app.",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                  )),
-              SizedBox(height: 20),
-              Text(
-                  "Q: Why doesnt the artist/title info refresh unless I back out and renter the page?",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.bold,
-                  )),
-              SizedBox(height: 7),
-              Text(
-                  "I forgot to add the code that keeps the connection open. It will be fixed soon :)",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                  )),
-              SizedBox(height: 20),
-              Text("Q: I like/love the app and wanna donate.",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.bold,
-                  )),
-              SizedBox(height: 7),
-              Text(
-                  "I am thankful for all donations as I code in my freetime and don't get paid. You can donate to me to encourage me to work on the app, and pay for the certificate to keep it on the app store using the button below. You can also donate to the site that we get our data from at listen.moe",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                  )),
-              new RaisedButton(
-                shape: new RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(10.0),
-                ),
-                color: Colors.red,
-                child: Text('Paypal',
-                    style: TextStyle(
-                        fontSize: 23.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white)),
-                onPressed: _paypal,
-              ),
-            ])));
+_paypal() async {
+  const url = 'https://paypal.me/HentaiGlare';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
 
-_paypal() async {
+_discord() async {
   const url = 'https://paypal.me/HentaiGlare';
   if (await canLaunch(url)) {
     await launch(url);
