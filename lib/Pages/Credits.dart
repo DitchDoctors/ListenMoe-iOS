@@ -27,7 +27,7 @@ class _Credits extends State<Credits> {
                       image: new DecorationImage(
                           fit: BoxFit.fill,
                           image: new NetworkImage(
-                              "https://cdn.discordapp.com/avatars/475756899992731648/a_f3c2848eb3ce556676025ba4694cac78.gif?size=256&f=.gif")))),
+                              "https://creepymc.com/ditch.gif")))),
               SizedBox(height: 5),
               Text("DitchDoctor (Lead Dev)",
                   style: TextStyle(
@@ -51,7 +51,7 @@ class _Credits extends State<Credits> {
                       image: new DecorationImage(
                           fit: BoxFit.fill,
                           image: new NetworkImage(
-                              "https://cdn.discordapp.com/avatars/169279823464628224/5c6469314d8d23bd275928a5f89c7b42.png?size=256")))),
+                              "https://creepymc.com/festive.gif")))),
               SizedBox(height: 5),
               Text("FestiveDumpling (Co-Dev)",
                   style: TextStyle(
@@ -75,7 +75,7 @@ class _Credits extends State<Credits> {
                       image: new DecorationImage(
                           fit: BoxFit.fill,
                           image: new NetworkImage(
-                              "https://cdn.discordapp.com/avatars/564762872521949191/a_03ee469222d314c0ec5593f06eaac833.gif?size=256&f=.gif")))),
+                              "https://creepymc.com/doll.gif")))),
               SizedBox(height: 5),
               Text("Doll (DitchDoctors Girlfriend)",
                   style: TextStyle(
@@ -99,7 +99,7 @@ class _Credits extends State<Credits> {
                       image: new DecorationImage(
                           fit: BoxFit.fill,
                           image: new NetworkImage(
-                              "https://cdn.discordapp.com/avatars/425097102910291968/8c9f88efc033097af860e125f84d9f48.png?size=256")))),
+                              "https://creepymc.com/bk.gif")))),
               SizedBox(height: 5),
               Text("BlackKnit",
                   style: TextStyle(

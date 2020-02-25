@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:listenmoe/constants.dart';
 import 'dart:core';
+import 'package:url_launcher/url_launcher.dart';
 
 class FAQ extends StatefulWidget {
   @override
@@ -56,7 +57,7 @@ class _FAQ extends State<FAQ> {
                   )),
               SizedBox(height: 7),
               Text(
-                  "A You can post in the listen.moe discord and tag @DitchDoctor",
+                  "A You can post in the listen.moe discord and tag @DitchDoctor Or join my development server below",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
@@ -84,7 +85,7 @@ class _FAQ extends State<FAQ> {
                     color: Colors.white,
                     fontSize: 18.0,
                   )),
- /*              SizedBox(height: 20),
+              /*              SizedBox(height: 20),
               Text(
                   "Q: Why doesnt the artist/title info refresh unless I back out and renter the page?",
                   style: TextStyle(
@@ -113,6 +114,9 @@ class _FAQ extends State<FAQ> {
                     color: Colors.white,
                     fontSize: 18.0,
                   )),
+              SizedBox(
+                height: 20,
+              ),
               /*      new RaisedButton(
                 shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(10.0),
@@ -125,6 +129,44 @@ class _FAQ extends State<FAQ> {
                         color: Colors.white)),
                 onPressed: _paypal,
               ), */
+              Text(
+                  "Q Are there any cool plans for the app that arent mentioned here?",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                  )),
+              SizedBox(height: 7),
+              Text(
+                  "A Yes! When we hit 1k active users there will be a big giveaway on my development discord! And we (Festive and I) plan to add every feature from the site! ",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                  )),
+              SizedBox(
+                height: 20,
+              ),
+              new RaisedButton(
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                ),
+                color: Colors.red,
+                child: Text('Join our discord!',
+                    style: TextStyle(
+                        fontSize: 23.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
+                onPressed: _discord,
+              ),
             ])));
+  }
+}
+
+_discord() async {
+  const url = 'https://discord.gg/ccnNhBw';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }

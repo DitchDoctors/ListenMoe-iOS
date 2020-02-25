@@ -138,21 +138,3 @@ class HomePage extends StatelessWidget {
                 ])))));
   }
 }
-
-_paypal() async {
-  const url = 'https://paypal.me/HentaiGlare';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
-
-_discord() async {
-  const url = 'https://paypal.me/HentaiGlare';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}

@@ -32,7 +32,6 @@ class _PlayerStateController extends State<PlayerController> {
     _notifier = ValueNotifier<bool>(_isPlaying);
     _player =
         Player(url: widget.radioChoice == RadioChoice.jpop ? jpopURL : kpopURL);
-
     //Beat heart as soon as audio starts;
     _player.audioStart().whenComplete(() => Timer.periodic(
         Duration(seconds: widget.heartbeat), (_) => _radio.keepAlive(true)));
