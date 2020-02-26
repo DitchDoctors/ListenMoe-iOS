@@ -1,10 +1,15 @@
 import 'dart:async';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_radio/flutter_radio.dart';
 import 'package:listenmoe/Animator/flip_cards.dart';
+
 import 'package:listenmoe/Models/enums.dart';
 import 'package:listenmoe/Models/player.dart';
 import 'package:listenmoe/Models/radio_model.dart';
+import 'package:palette_generator/palette_generator.dart';
+import 'package:simple_animations/simple_animations/controlled_animation.dart';
+import 'package:simple_animations/simple_animations/multi_track_tween.dart';
 
 import '../constants.dart';
 import 'main_radio.dart';
@@ -19,35 +24,65 @@ class PlayerController extends StatefulWidget {
 
 class _PlayerStateController extends State<PlayerController> {
   bool _isPlaying = true;
+
+
   Player _player;
   MainRadio _radio;
+  RadioChoice _radioChoice;
   _PlayerStateController(RadioChoice choice) {
+    _radioChoice = choice;
     _radio = MainRadio(radioChoice: choice);
   }
 
+
+
   ValueNotifier<bool> _notifier;
+  Future<PaletteGenerator> _gradientGen;
 
   void initState() {
     super.initState();
     _notifier = ValueNotifier<bool>(_isPlaying);
-    _player =
-        Player(url: widget.radioChoice == RadioChoice.jpop ? jpopURL : kpopURL);
-
-    //Beat heart as soon as audio starts;
-    _player.audioStart().whenComplete(() => Timer.periodic(
-        Duration(seconds: widget.heartbeat), (_) => _radio.keepAlive(true)));
-  }
+    _changeStations(_radioChoice, shouldStop: false);
+    _heartBeater();
+    
+    
+    }
 
   @override
   void dispose() {
     super.dispose();
     _dispose();
-    _isPlaying = true;
   }
 
   void _dispose() async {
+    _isPlaying = true;
     if (await FlutterRadio.isPlaying()) {
       FlutterRadio.stop();
+    }
+  }
+
+  void _changeStations(RadioChoice choice, {bool shouldStop = true}) async {
+    
+    _isPlaying = false;
+    setState(() => _radioChoice = choice);
+      if (shouldStop) if (await FlutterRadio.isPlaying()) FlutterRadio.stop();
+     _player =  Player(url: _radioChoice == RadioChoice.jpop ? jpopURL : kpopURL)..audioStart();
+    _radio = MainRadio(radioChoice: choice);
+   await FlutterRadio.isPlaying()
+    .then((_) => _isPlaying = _);
+  }
+
+  //Beat heart as soon as audio starts; Must call only once!
+  void _heartBeater() {
+    _player.audioStart().whenComplete(() => Timer.periodic(
+        Duration(seconds: widget.heartbeat), (_) => _radio.keepAlive(true)));
+  }
+
+  void _generateDominantColor(String imageURL) {
+    if (imageURL != null) {
+      print('this is imageURL $imageURL');
+    final ImageProvider _provider = NetworkImage(imageURL);
+    _gradientGen = PaletteGenerator.fromImageProvider(_provider);
     }
   }
 
@@ -55,31 +90,59 @@ class _PlayerStateController extends State<PlayerController> {
   Widget build(BuildContext context) {
     String url = widget.radioChoice == RadioChoice.jpop ? jpopURL : kpopURL;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: moeColor,
-        elevation: 0,
-        flexibleSpace: Center(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 30),
-            child: SizedBox(
-              height: 40,
-              width: 40,
-              child: Image.asset(listenMoeIcon),
-            ),
-          ),
-        ),
-      ),
-      body: StreamBuilder<SongInfo>(
-          stream: _radio.songData,
-          builder: (context, snapshot) {
-            if (snapshot.hasData && snapshot.data != null) {
-              SongInfo _songData = snapshot.data;
+      
+      body:   Stack(
+              children: <Widget>[
+          FutureBuilder<PaletteGenerator>(
+            future: _gradientGen,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
 
-              return new Container(
-                  width: double.infinity,
+                final _tween = MultiTrackTween([
+                  Track(
+                    'color1'
+                  ).add(const Duration(seconds: 8), ColorTween(begin: snapshot.data.colors.first, end: snapshot.data.colors.last)),
+
+                  Track(
+                    'color2'
+                  ).add(const Duration(seconds: 8), ColorTween(begin: snapshot.data.colors.last, end: snapshot.data.colors.first)),
+
+                ]);
+
+              return ControlledAnimation(
+                duration: _tween.duration,
+                
+                playback: Playback.MIRROR,
+                tween: _tween,
+                
+                  builder: (contet, animation,) => Container(
                   height: MediaQuery.of(context).size.height,
-                  child: SafeArea(
-                    top: true,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [animation['color1'], animation['color2']],
+                      begin: Alignment.bottomRight,
+                      end: Alignment.topLeft,
+                    ),
+                  ),
+                 
+                ),
+              );
+              } 
+              return Container();
+            }
+          ),
+          Padding(
+            padding:  EdgeInsets.only(top: AppBar().preferredSize.height),
+            child: StreamBuilder<SongInfo>(
+            stream: _radio.songData,
+            builder: (context, snapshot) {
+              if (snapshot.hasData && snapshot.data != null) {
+                SongInfo _songData = snapshot.data;
+                Future.delayed(const Duration(milliseconds: 500), () => setState(() => _generateDominantColor(listenMoeCover + _songData.d.song.albums?.first?.image)));
+                
+                return new Container(
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height,
                     child: Stack(
                       fit: StackFit.expand,
                       children: <Widget>[
@@ -237,26 +300,84 @@ class _PlayerStateController extends State<PlayerController> {
                           ),
                         ),
                       ],
-                    ),
-                  ));
-            }
-            return Center(
-                child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 150,
-                ),
-                CircularProgressIndicator(),
-                SizedBox(
-                  height: 25,
-                ),
-                Text('Buffering Stream...',
-                    style: TextStyle(
-                      color: Colors.white,
-                    )),
-              ],
-            ));
-          }),
+                    ));
+              }
+              return Center(
+                  child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: 150,
+                  ),
+                  CircularProgressIndicator(),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Text('Buffering Stream...',
+                      style: TextStyle(
+                        color: Colors.white,
+                      )),
+                ],
+              ));
+            }),
+          ),
+
+
+
+
+          Positioned(
+            top: 0, right: 0, left: 0,
+                      child: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        flexibleSpace: Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 30),
+              child: SizedBox(
+                height: 40,
+                width: 40,
+                child: Image.asset(listenMoeIcon),
+              ),
+            ),
+        ),
+        actions: [
+            
+            PopupMenuButton(
+              color: moeColor,
+              icon: Icon(Icons.radio),
+                itemBuilder: (context) => [
+                   PopupMenuItem(child: 
+                    RadioListTile<RadioChoice>(
+                      activeColor: Colors.red,
+                      title: Text('JPop', ),
+                      onChanged: (value) {
+                        Navigator.of(context).pop();
+                        _changeStations(value);
+                      },
+                      value:RadioChoice.jpop,
+                      groupValue: _radioChoice,
+                    )
+                  ),
+
+                  PopupMenuItem(child: 
+                    RadioListTile<RadioChoice>(
+                      activeColor: Colors.red,
+                      title: Text('KPop', ),
+                      onChanged: (value) {
+                        //setState(() => _radio = MainRadio(radioChoice: value));
+                        Navigator.of(context).pop();
+                        _changeStations(value);
+                      },
+                      value: RadioChoice.kpop,
+                      groupValue: _radioChoice,
+                    )
+                  )
+                ],
+              ),
+        ]
+      ),
+          ),
+        ],
+      ) 
     );
   }
 }

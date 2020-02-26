@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:listenmoe/Controllers/log_in_controller.dart';
 import 'package:listenmoe/Controllers/player_controller.dart';
 import 'package:listenmoe/Models/enums.dart';
 import 'package:listenmoe/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:core';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -27,12 +29,29 @@ ThemeData get _appTheme => ThemeData(
       ),
     );
 
+Widget _frontDoor;
 
-void main() {
+//TODO: Needs Proper init
+SharedPreferences pref;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await _checkIfLoggedIn();
+
+
   runApp(MaterialApp(
     theme: _appTheme,
-    home: HomePage(),
+    home: _frontDoor,//HomePage(),
   ));
+}
+
+
+Future _checkIfLoggedIn() async {
+   pref = await SharedPreferences.getInstance();
+  if (pref.getString(userToken) != null) {
+    _frontDoor = PlayerController(radioChoice: RadioChoice.jpop);
+  } else 
+  _frontDoor = LoginController();
 }
 
 

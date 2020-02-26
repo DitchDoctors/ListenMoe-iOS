@@ -5,14 +5,14 @@ import 'package:flutter_radio/flutter_radio.dart';
 class Player extends BackgroundAudioTask {
 
   String url;
-  bool _playing;
+  bool _playing = false;
 
   Player({this.url});
 //  Completer _completer = Completer();
 
    Future<void> audioStart() async {
     await FlutterRadio.audioStart()
-        .whenComplete(() => FlutterRadio.play(url: url));
+        .whenComplete(() { FlutterRadio.play(url: url); _playing = true; });
   }
 
 

@@ -10,7 +10,9 @@ import '../constants.dart';
 
 class FlipCards extends StatefulWidget {
   final SongInfo songData;
-  FlipCards({@required this.songData, Key key}) : super(key: key); 
+  final Function(String) finishedLoadingImage;
+
+  FlipCards({@required this.songData, this.finishedLoadingImage, Key key}) : super(key: key); 
 
   @override
   _FlipCardsState createState() => _FlipCardsState();
@@ -34,12 +36,14 @@ class _FlipCardsState extends State<FlipCards> {
     return ControlledAnimation(
       animationControllerStatusListener: (status) {
         if (status == AnimationStatus.dismissed){
-          print('home');
+          
           _flipper.value = true;
+        
+        
         }
       
         else if (status == AnimationStatus.completed) {
-          print('completed');
+          
          _flipper.value = false;
         }          
       },
@@ -76,7 +80,8 @@ class _FlipCardsState extends State<FlipCards> {
                     transform: Matrix4.rotationY(animation),
                     origin: Offset((fixedSize*0.5), 0),
                                       child: Image.network(
-                      'https://cdn.listen.moe/covers/${widget.songData.d.song.albums.first.image}',
+                      listenMoeCover + widget.songData.d.song.albums.first.image,
+                      
                        headers: ListenMoeRequests.headers,
                        
                         fit: BoxFit.cover,
@@ -85,6 +90,7 @@ class _FlipCardsState extends State<FlipCards> {
                             return ValueListenableBuilder<bool>(
                               valueListenable: _flipper,
                               builder: (context, value, _) {
+                                
                                 return (animation <= 1.5) ?  child : Image.asset(
                                       listenMoeIcon,
                                       fit: BoxFit.cover,
@@ -93,6 +99,7 @@ class _FlipCardsState extends State<FlipCards> {
                             );
 
                           } else {
+                          
                           return Stack(
                                                       children: <Widget>[
                                         Image.asset(
