@@ -1,0 +1,197 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:1:1-33:12
+INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:1:1-33:12
+INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:1:1-33:12
+INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:1:1-33:12
+MERGED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:1:1-33:12
+MERGED from [:audio_service] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/audio_service-0.5.7/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_radio] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_radio-0.1.7/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-7:12
+MERGED from [:url_launcher] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.2.5/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-14:12
+MERGED from [:flutter_isolate] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_isolate-1.0.0+11/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.fragment:fragment:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0-rc01.aar/9df58a9139107875c1be3e4b8a287593/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.exoplayer:exoplayer:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/exoplayer-2.8.2.aar/68340049bd3bb9cb207ea9b194d33ee9/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-ui-2.8.2.aar/dccb213d3c52b2857ae0d169c2ae46d8/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.0.0] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/7dbf3e8558d7db08d33fbec6b34b8b42/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0-rc01.aar/07c286e372757232ace21f0cc7df7855/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0-rc01.aar/36e6c5082d2acbc7d0c2aac11683eb0c/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/loader-1.0.0-rc01.aar/ea7fb39dc6ff10e83a14905edd418f9f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0-rc01.aar/3fdf3b7b0130935075151f4b4187e306/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0-rc01.aar/a63a1f3ea92a1c53b4588f4385551cb8/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0-rc01.aar/f83e636fbd73d286b45331659368f2f6/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0-rc01.aar/bf6f70ba3adda93d89063b4099da9188/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/customview-1.0.0-rc01.aar/1878dafa926c85f3ed346cc2672b3d5b/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0-rc01.aar/bfac041f5244df853e88930bed04d256/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0-rc01.aar/9ede6323287bb84ca8c5c7ca84b2217c/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.0.1] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/core-1.0.1.aar/93d41e329ba9927010eed761cd3c9285/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0.aar/100543225f6a9089103e77582e82062b/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0-rc01.aar/243851d2b02e672f3cb5c1b1cb83505d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-dash-2.8.2.aar/005de0e2872849dbc9abd467903b17cb/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-hls-2.8.2.aar/8bfbc1d011b99414c5caf1c2379594ff/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-smoothstreaming-2.8.2.aar/68ef45db8b9d265279ab9437b99bb120/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-core-2.8.2.aar/f1f60be821f659ae4c8870b6c6726deb/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0.aar/176126c71022344be2c3ef096eb18a51/AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.interpolator:interpolator:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0-rc01.aar/4f367a9f5b6e7ee3219c2e550300cd40/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0-rc01.aar/240191bcdb8c60583c79bc4c001f5830/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0-rc01.aar/ce9704dbd2e3c1728354c9472f0a244d/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0-rc01.aar/90d380ca0776c532115f177782f9cc1f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/print-1.0.0-rc01.aar/b301b6ffebec990868e4198b7d026555/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0-rc01.aar/bffdf98410720b2d6351837fe5d19522/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0-rc01.aar/1023aea51c72eed8fb6441102e891a19/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+	package
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:2:5-36
+		INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/debug/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:1:1-33:12
+		INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/debug/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:1:1-33:12
+		INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/debug/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:1:11-69
+application
+ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:9:5-32:19
+MERGED from [:url_launcher] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.2.5/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:7:5-12:19
+MERGED from [:url_launcher] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.2.5/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:7:5-12:19
+MERGED from [androidx.core:core:1.0.1] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/core-1.0.1.aar/93d41e329ba9927010eed761cd3c9285/AndroidManifest.xml:22:5-89
+MERGED from [androidx.core:core:1.0.1] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/core-1.0.1.aar/93d41e329ba9927010eed761cd3c9285/AndroidManifest.xml:22:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0.aar/176126c71022344be2c3ef096eb18a51/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0.aar/176126c71022344be2c3ef096eb18a51/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.0.1] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/core-1.0.1.aar/93d41e329ba9927010eed761cd3c9285/AndroidManifest.xml:22:18-86
+	android:label
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:11:9-34
+	android:icon
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:12:9-43
+	android:name
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:10:9-57
+activity#com.example.listenmoe.MainActivity
+ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:13:9-31:20
+	android:launchMode
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:15:13-43
+	android:hardwareAccelerated
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:18:13-47
+	android:windowSoftInputMode
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:19:13-55
+	android:configChanges
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:17:13-144
+	android:theme
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:16:13-47
+	android:name
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:14:13-41
+meta-data#io.flutter.app.android.SplashScreenUntilFirstFrame
+ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:24:13-26:40
+	android:value
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:26:17-37
+	android:name
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:25:17-82
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:27:13-30:29
+action#android.intent.action.MAIN
+ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:28:17-68
+	android:name
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:28:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:29:17-76
+	android:name
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml:29:27-74
+uses-sdk
+INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml
+MERGED from [:audio_service] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/audio_service-0.5.7/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:audio_service] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/audio_service-0.5.7/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_radio] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_radio-0.1.7/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_radio] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_radio-0.1.7/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.2.5/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.2.5/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_isolate] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_isolate-1.0.0+11/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_isolate] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_isolate-1.0.0+11/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0-rc01.aar/9df58a9139107875c1be3e4b8a287593/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/fragment-1.0.0-rc01.aar/9df58a9139107875c1be3e4b8a287593/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.exoplayer:exoplayer:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/exoplayer-2.8.2.aar/68340049bd3bb9cb207ea9b194d33ee9/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/exoplayer-2.8.2.aar/68340049bd3bb9cb207ea9b194d33ee9/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-ui-2.8.2.aar/dccb213d3c52b2857ae0d169c2ae46d8/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-ui-2.8.2.aar/dccb213d3c52b2857ae0d169c2ae46d8/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.0.0] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/7dbf3e8558d7db08d33fbec6b34b8b42/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/7dbf3e8558d7db08d33fbec6b34b8b42/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0-rc01.aar/07c286e372757232ace21f0cc7df7855/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/legacy-support-core-ui-1.0.0-rc01.aar/07c286e372757232ace21f0cc7df7855/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0-rc01.aar/36e6c5082d2acbc7d0c2aac11683eb0c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/legacy-support-core-utils-1.0.0-rc01.aar/36e6c5082d2acbc7d0c2aac11683eb0c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/loader-1.0.0-rc01.aar/ea7fb39dc6ff10e83a14905edd418f9f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/loader-1.0.0-rc01.aar/ea7fb39dc6ff10e83a14905edd418f9f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0-rc01.aar/3fdf3b7b0130935075151f4b4187e306/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/viewpager-1.0.0-rc01.aar/3fdf3b7b0130935075151f4b4187e306/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0-rc01.aar/a63a1f3ea92a1c53b4588f4385551cb8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-1.0.0-rc01.aar/a63a1f3ea92a1c53b4588f4385551cb8/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0-rc01.aar/f83e636fbd73d286b45331659368f2f6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/drawerlayout-1.0.0-rc01.aar/f83e636fbd73d286b45331659368f2f6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0-rc01.aar/bf6f70ba3adda93d89063b4099da9188/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-1.0.0-rc01.aar/bf6f70ba3adda93d89063b4099da9188/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/customview-1.0.0-rc01.aar/1878dafa926c85f3ed346cc2672b3d5b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/customview-1.0.0-rc01.aar/1878dafa926c85f3ed346cc2672b3d5b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0-rc01.aar/bfac041f5244df853e88930bed04d256/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-1.0.0-rc01.aar/bfac041f5244df853e88930bed04d256/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0-rc01.aar/9ede6323287bb84ca8c5c7ca84b2217c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-1.0.0-rc01.aar/9ede6323287bb84ca8c5c7ca84b2217c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.1] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/core-1.0.1.aar/93d41e329ba9927010eed761cd3c9285/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.1] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/core-1.0.1.aar/93d41e329ba9927010eed761cd3c9285/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0.aar/100543225f6a9089103e77582e82062b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/lifecycle-runtime-2.0.0.aar/100543225f6a9089103e77582e82062b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0-rc01.aar/243851d2b02e672f3cb5c1b1cb83505d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/lifecycle-livedata-core-2.0.0-rc01.aar/243851d2b02e672f3cb5c1b1cb83505d/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-dash-2.8.2.aar/005de0e2872849dbc9abd467903b17cb/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-dash-2.8.2.aar/005de0e2872849dbc9abd467903b17cb/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-hls-2.8.2.aar/8bfbc1d011b99414c5caf1c2379594ff/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-hls-2.8.2.aar/8bfbc1d011b99414c5caf1c2379594ff/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-smoothstreaming-2.8.2.aar/68ef45db8b9d265279ab9437b99bb120/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-smoothstreaming-2.8.2.aar/68ef45db8b9d265279ab9437b99bb120/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-core-2.8.2.aar/f1f60be821f659ae4c8870b6c6726deb/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-core-2.8.2.aar/f1f60be821f659ae4c8870b6c6726deb/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0.aar/176126c71022344be2c3ef096eb18a51/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/versionedparcelable-1.0.0.aar/176126c71022344be2c3ef096eb18a51/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0-rc01.aar/4f367a9f5b6e7ee3219c2e550300cd40/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/interpolator-1.0.0-rc01.aar/4f367a9f5b6e7ee3219c2e550300cd40/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0-rc01.aar/240191bcdb8c60583c79bc4c001f5830/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/cursoradapter-1.0.0-rc01.aar/240191bcdb8c60583c79bc4c001f5830/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0-rc01.aar/ce9704dbd2e3c1728354c9472f0a244d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/documentfile-1.0.0-rc01.aar/ce9704dbd2e3c1728354c9472f0a244d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0-rc01.aar/90d380ca0776c532115f177782f9cc1f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-1.0.0-rc01.aar/90d380ca0776c532115f177782f9cc1f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/print-1.0.0-rc01.aar/b301b6ffebec990868e4198b7d026555/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/print-1.0.0-rc01.aar/b301b6ffebec990868e4198b7d026555/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0-rc01.aar/bffdf98410720b2d6351837fe5d19522/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/core-runtime-2.0.0-rc01.aar/bffdf98410720b2d6351837fe5d19522/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0-rc01.aar/1023aea51c72eed8fb6441102e891a19/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0-rc01] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/lifecycle-viewmodel-2.0.0-rc01.aar/1023aea51c72eed8fb6441102e891a19/AndroidManifest.xml:20:5-44
+INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/debug/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/debug/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/debug/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/debug/AndroidManifest.xml:6:5-66
+	android:name
+		ADDED from /Users/michaelgarcia/Documents/GitHub/ListenMoe-iOS/android/app/src/debug/AndroidManifest.xml:6:22-64
+activity#io.flutter.plugins.urllauncher.WebViewActivity
+ADDED from [:url_launcher] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.2.5/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:8:9-11:74
+	android:exported
+		ADDED from [:url_launcher] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.2.5/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:10:13-37
+	android:theme
+		ADDED from [:url_launcher] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.2.5/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:11:13-71
+	android:name
+		ADDED from [:url_launcher] /Users/michaelgarcia/Documents/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.2.5/android/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:9:13-74
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.exoplayer:exoplayer-core:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-core-2.8.2.aar/f1f60be821f659ae4c8870b6c6726deb/AndroidManifest.xml:24:5-79
+	android:name
+		ADDED from [com.google.android.exoplayer:exoplayer-core:2.8.2] /Users/michaelgarcia/.gradle/caches/transforms-1/files-1.1/jetified-exoplayer-core-2.8.2.aar/f1f60be821f659ae4c8870b6c6726deb/AndroidManifest.xml:24:22-76
