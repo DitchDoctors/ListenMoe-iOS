@@ -72,7 +72,7 @@ class _FlipCardsState extends State<FlipCards> {
               clipBehavior: Clip.antiAlias,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(7.0)),
-              color: moeColor,
+              color: Colors.transparent,
               elevation: 2,
               child: ((widget.songData.d.song.albums?.isNotEmpty ?? false) &&
                       widget.songData.d.song.albums?.first?.image != null)
