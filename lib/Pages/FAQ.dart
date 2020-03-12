@@ -109,7 +109,11 @@ class _FAQ extends State<FAQ> {
                   )),
               SizedBox(height: 7),
               Text(
+<<<<<<< Updated upstream
                   "Thank you for the interest! At this time im not accepting donations but I will soon :)",
+=======
+                  "Thank you for the interest! Theres a paypal link at the bottom!",
+>>>>>>> Stashed changes
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
@@ -158,6 +162,21 @@ class _FAQ extends State<FAQ> {
                         color: Colors.white)),
                 onPressed: _discord,
               ),
+<<<<<<< Updated upstream
+=======
+                            new RaisedButton(
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                ),
+                color: Colors.red,
+                child: Text('Donate',
+                    style: TextStyle(
+                        fontSize: 23.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
+                onPressed: _dono,
+              ),
+>>>>>>> Stashed changes
             ])));
   }
 }
@@ -170,3 +189,15 @@ _discord() async {
     throw 'Could not launch $url';
   }
 }
+<<<<<<< Updated upstream
+=======
+_dono() async {
+  const url = 'https://paypal.me/DitchDoctor';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+>>>>>>> Stashed changes

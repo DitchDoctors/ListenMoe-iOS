@@ -5,14 +5,22 @@ import 'package:flutter_radio/flutter_radio.dart';
 class Player extends BackgroundAudioTask {
 
   String url;
+<<<<<<< Updated upstream
   bool _playing;
+=======
+  bool _playing = false;
+>>>>>>> Stashed changes
 
   Player({this.url});
 //  Completer _completer = Completer();
 
    Future<void> audioStart() async {
     await FlutterRadio.audioStart()
+<<<<<<< Updated upstream
         .whenComplete(() => FlutterRadio.play(url: url));
+=======
+        .whenComplete(() { FlutterRadio.play(url: url); _playing = true; });
+>>>>>>> Stashed changes
   }
 
 
