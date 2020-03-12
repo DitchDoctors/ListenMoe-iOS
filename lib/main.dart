@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_radio/flutter_radio.dart';
@@ -12,17 +11,6 @@ import 'dart:core';
 import 'package:url_launcher/url_launcher.dart';
 import 'Models/player.dart';
 import 'Models/radio_model.dart';
-=======
-import 'package:flutter/material.dart';
-import 'package:listenmoe/Controllers/log_in_controller.dart';
-import 'package:listenmoe/Controllers/player_controller.dart';
-import 'package:listenmoe/Models/enums.dart';
-import 'package:listenmoe/Pages/Credits.dart';
-import 'package:listenmoe/constants.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:core';
-import 'package:url_launcher/url_launcher.dart';
->>>>>>> Stashed changes
 import 'package:listenmoe/Pages/FAQ.dart';
 import 'package:listenmoe/Pages/Credits.dart';
 
@@ -46,36 +34,14 @@ ThemeData get _appTheme => ThemeData(
         ),
       ),
     );
-<<<<<<< Updated upstream
-=======
 
-Widget _frontDoor;
-
-//TODO: Needs Proper init
-SharedPreferences pref;
-
-void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await _checkIfLoggedIn();
->>>>>>> Stashed changes
-
+void main() {
   runApp(MaterialApp(
     theme: _appTheme,
     home: HomePage(),
   ));
 }
 
-<<<<<<< Updated upstream
-=======
-//Future _checkIfLoggedIn() async {
-// pref = await SharedPreferences.getInstance();
-// if (pref.getString(userToken) != null) {
-//   _frontDoor = PlayerController(radioChoice: RadioChoice.jpop);
-// } else
-// _frontDoor = LoginController();
-// }
-
->>>>>>> Stashed changes
 class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,13 +52,7 @@ class HomePage extends StatelessWidget {
                 child: new SingleChildScrollView(
                     child: Column(children: <Widget>[
                   //     SizedBox(height: 55),
-                  Text("Placeholder for the login screen",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22.0,
-                        fontWeight: FontWeight.bold,
-                      )),
-                  Text("Press continue for the streams",
+                  Text("Select your style!",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 22.0,
@@ -104,26 +64,39 @@ class HomePage extends StatelessWidget {
                         borderRadius: new BorderRadius.circular(10.0),
                       ),
                       color: Colors.red,
-                      child: Text('Continue',
+                      child: Text('JPop',
                           style: TextStyle(
                               fontSize: 23.0,
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),
                       onPressed: () {
                         {
-<<<<<<< Updated upstream
                           Navigator.of(context).push(MaterialPageRoute<Null>(
                               builder: (BuildContext context) {
                             return PlayerController(
                               radioChoice: RadioChoice.jpop,
                             );
                           }));
-=======
-                          Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(
-                                  builder: (context) => PlayerController(
-                                      radioChoice: RadioChoice.jpop)));
->>>>>>> Stashed changes
+                        }
+                      }),
+                  RaisedButton(
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(10.0),
+                      ),
+                      color: Colors.red,
+                      child: Text('KPop',
+                          style: TextStyle(
+                              fontSize: 23.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white)),
+                      onPressed: () {
+                        {
+                          Navigator.of(context).push(MaterialPageRoute<Null>(
+                              builder: (BuildContext context) {
+                            return PlayerController(
+                              radioChoice: RadioChoice.kpop,
+                            );
+                          }));
                         }
                       }),
                   RaisedButton(
@@ -140,31 +113,6 @@ class HomePage extends StatelessWidget {
                         {
                           Navigator.of(context).push(MaterialPageRoute<Null>(
                               builder: (BuildContext context) {
-<<<<<<< Updated upstream
-                            return PlayerController(
-                              radioChoice: RadioChoice.kpop,
-                            );
-=======
-                            return new FAQ();
->>>>>>> Stashed changes
-                          }));
-                        }
-                      }),
-                  RaisedButton(
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(10.0),
-                      ),
-                      color: Colors.red,
-                      child: Text('Credits',
-                          style: TextStyle(
-                              fontSize: 23.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white)),
-                      onPressed: () {
-                        {
-                          Navigator.of(context).push(MaterialPageRoute<Null>(
-                              builder: (BuildContext context) {
-<<<<<<< Updated upstream
                             return FAQ();
                           }));
                         }
@@ -190,12 +138,3 @@ class HomePage extends StatelessWidget {
                 ])))));
   }
 }
-=======
-                            return new Credits();
-                          }));
-                        }
-                      }),
-                ])))));
-  }
-}
->>>>>>> Stashed changes

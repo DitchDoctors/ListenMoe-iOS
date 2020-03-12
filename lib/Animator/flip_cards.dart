@@ -10,13 +10,7 @@ import '../constants.dart';
 
 class FlipCards extends StatefulWidget {
   final SongInfo songData;
-<<<<<<< Updated upstream
   FlipCards({@required this.songData, Key key}) : super(key: key); 
-=======
-  final Function(String) finishedLoadingImage;
-
-  FlipCards({@required this.songData, this.finishedLoadingImage, Key key}) : super(key: key); 
->>>>>>> Stashed changes
 
   @override
   _FlipCardsState createState() => _FlipCardsState();
@@ -40,23 +34,12 @@ class _FlipCardsState extends State<FlipCards> {
     return ControlledAnimation(
       animationControllerStatusListener: (status) {
         if (status == AnimationStatus.dismissed){
-<<<<<<< Updated upstream
           print('home');
           _flipper.value = true;
         }
       
         else if (status == AnimationStatus.completed) {
           print('completed');
-=======
-          
-          _flipper.value = true;
-        
-        
-        }
-      
-        else if (status == AnimationStatus.completed) {
-          
->>>>>>> Stashed changes
          _flipper.value = false;
         }          
       },
@@ -85,11 +68,7 @@ class _FlipCardsState extends State<FlipCards> {
               clipBehavior: Clip.antiAlias,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(7.0)),
-<<<<<<< Updated upstream
               color: moeColor,
-=======
-              color: Colors.transparent,
->>>>>>> Stashed changes
               elevation: 2,
               child: ((widget.songData.d.song.albums?.isNotEmpty ?? false) &&
                       widget.songData.d.song.albums?.first?.image != null)
@@ -97,12 +76,7 @@ class _FlipCardsState extends State<FlipCards> {
                     transform: Matrix4.rotationY(animation),
                     origin: Offset((fixedSize*0.5), 0),
                                       child: Image.network(
-<<<<<<< Updated upstream
                       'https://cdn.listen.moe/covers/${widget.songData.d.song.albums.first.image}',
-=======
-                      listenMoeCover + widget.songData.d.song.albums.first.image,
-                      
->>>>>>> Stashed changes
                        headers: ListenMoeRequests.headers,
                        
                         fit: BoxFit.cover,
@@ -111,10 +85,6 @@ class _FlipCardsState extends State<FlipCards> {
                             return ValueListenableBuilder<bool>(
                               valueListenable: _flipper,
                               builder: (context, value, _) {
-<<<<<<< Updated upstream
-=======
-                                
->>>>>>> Stashed changes
                                 return (animation <= 1.5) ?  child : Image.asset(
                                       listenMoeIcon,
                                       fit: BoxFit.cover,
@@ -123,10 +93,6 @@ class _FlipCardsState extends State<FlipCards> {
                             );
 
                           } else {
-<<<<<<< Updated upstream
-=======
-                          
->>>>>>> Stashed changes
                           return Stack(
                                                       children: <Widget>[
                                         Image.asset(

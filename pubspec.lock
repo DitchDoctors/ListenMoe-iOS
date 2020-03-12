@@ -77,11 +77,7 @@ packages:
       name: dio
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< Updated upstream
     version: "3.0.8"
-=======
-    version: "3.0.9"
->>>>>>> Stashed changes
   flutter:
     dependency: "direct main"
     description: flutter
@@ -139,16 +135,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.8"
-<<<<<<< Updated upstream
-=======
-  palette_generator:
-    dependency: "direct main"
-    description:
-      name: palette_generator
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.2"
->>>>>>> Stashed changes
   path:
     dependency: transitive
     description:
@@ -176,11 +162,7 @@ packages:
       name: plugin_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< Updated upstream
     version: "1.0.1"
-=======
-    version: "1.0.2"
->>>>>>> Stashed changes
   quiver:
     dependency: transitive
     description:
@@ -195,48 +177,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.23.1"
-<<<<<<< Updated upstream
-=======
-  shared_preferences:
-    dependency: "direct main"
-    description:
-      name: shared_preferences
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.6+3"
-  shared_preferences_macos:
-    dependency: transitive
-    description:
-      name: shared_preferences_macos
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.1+6"
-  shared_preferences_platform_interface:
-    dependency: transitive
-    description:
-      name: shared_preferences_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.3"
-  shared_preferences_web:
-    dependency: transitive
-    description:
-      name: shared_preferences_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.2+4"
->>>>>>> Stashed changes
   simple_animations:
     dependency: "direct main"
     description:
       name: simple_animations
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< Updated upstream
     version: "1.3.6"
-=======
-    version: "1.3.9"
->>>>>>> Stashed changes
   sky_engine:
     dependency: transitive
     description: flutter
@@ -297,44 +244,28 @@ packages:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< Updated upstream
     version: "5.4.1"
-=======
-    version: "5.4.2"
->>>>>>> Stashed changes
   url_launcher_macos:
     dependency: transitive
     description:
       name: url_launcher_macos
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< Updated upstream
     version: "0.0.1+2"
-=======
-    version: "0.0.1+4"
->>>>>>> Stashed changes
   url_launcher_platform_interface:
     dependency: transitive
     description:
       name: url_launcher_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< Updated upstream
     version: "1.0.5"
-=======
-    version: "1.0.6"
->>>>>>> Stashed changes
   url_launcher_web:
     dependency: transitive
     description:
       name: url_launcher_web
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< Updated upstream
     version: "0.1.0+2"
-=======
-    version: "0.1.1+1"
->>>>>>> Stashed changes
   uuid:
     dependency: transitive
     description:
@@ -365,8 +296,4 @@ packages:
     version: "3.5.0"
 sdks:
   dart: ">=2.6.0 <3.0.0"
-<<<<<<< Updated upstream
   flutter: ">=1.12.8 <2.0.0"
-=======
-  flutter: ">=1.12.13+hotfix.4 <2.0.0"
->>>>>>> Stashed changes
