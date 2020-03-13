@@ -57,7 +57,7 @@ class CoverGradientBackground extends StatelessWidget {
                   ),
                 ),
               ),
-            );
+            ) as Widget;
           }
 
           return Container(

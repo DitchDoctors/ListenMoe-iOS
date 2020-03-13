@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:listenmoe/Controllers/log_in_controller.dart';
 import 'package:listenmoe/Controllers/player_controller.dart';
 import 'package:listenmoe/Models/enums.dart';
 import 'package:listenmoe/Pages/Credits.dart';
 import 'package:listenmoe/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:core';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:listenmoe/Pages/FAQ.dart';
-import 'package:listenmoe/Pages/Credits.dart';
+
+// The way in which TextTheme used here has been deprecated
+// https://github.com/flutter/flutter/blob/master/packages/flutter/lib/src/material/text_theme.dart
+
 
 ThemeData get _appTheme => ThemeData(
       scaffoldBackgroundColor: moeColor,

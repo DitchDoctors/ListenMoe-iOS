@@ -8,9 +8,6 @@ import 'package:listenmoe/Animator/gradient_background.dart';
 import 'package:listenmoe/Models/enums.dart';
 import 'package:listenmoe/Models/player.dart';
 import 'package:listenmoe/Models/radio_model.dart';
-import 'package:palette_generator/palette_generator.dart';
-import 'package:simple_animations/simple_animations/controlled_animation.dart';
-import 'package:simple_animations/simple_animations/multi_track_tween.dart';
 
 import '../constants.dart';
 import 'main_radio.dart';
@@ -26,7 +23,7 @@ class PlayerController extends StatefulWidget {
 class _PlayerStateController extends State<PlayerController> {
   bool _isPlaying = true;
 
-  Player _player;
+  Player _player; // Dart Analyzer won't stop crying here
   MainRadio _radio;
   RadioChoice _radioChoice;
   _PlayerStateController(RadioChoice choice) {
@@ -41,6 +38,7 @@ class _PlayerStateController extends State<PlayerController> {
     _notifier = ValueNotifier<bool>(_isPlaying);
     _changeStations(_radioChoice, shouldStop: false);
     _heartBeater();
+    
   }
 
   @override
