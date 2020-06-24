@@ -37,8 +37,8 @@ class D {
         song: Song.fromJson(parsedJson['song']),
         artist: SongArtist.fromJson(parsedJson['song']),
         startTime: (parsedJson['startTime']),
-        lastPlayed: List<Song>.from(parsedJson['lastPlayed'].map((x) => Song.fromJson(x)))
-
+        lastPlayed: List<Song>.from(parsedJson['lastPlayed'].map((x) => Song.fromJson(x))),
+        listeners: parsedJson['listeners'],
         //lastPlayed : List<LastPlayed>.from(parsedJson['lastPlayed'].map((x) => LastPlayed.fromJson(x))),
         
         /*requester : parsedJson['requester'],

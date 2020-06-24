@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:audio_service/audio_service.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_radio/flutter_radio.dart';
 
 class Player extends BackgroundAudioTask {
@@ -10,16 +11,24 @@ class Player extends BackgroundAudioTask {
   Player({this.url});
 //  Completer _completer = Completer();
 
+  get isPlayingbool => _playing;
+  final ValueNotifier<bool> isPlaying = ValueNotifier(false);
+
+
    Future<void> audioStart() async {
     await FlutterRadio.audioStart()
-        .whenComplete(() => FlutterRadio.play(url: url));
+        .whenComplete(() => {
+           FlutterRadio.play(url: url),
+           isPlaying.value = true
+           
+        });
   }
 
 
 
 
     playPause() {
-      if (_playing)
+      if (_playing) 
         pause();
       else
         play();
@@ -27,7 +36,8 @@ class Player extends BackgroundAudioTask {
 
   play() {
     FlutterRadio.play(url: url);
-    _playing = true;
+    isPlaying.value = true;
+    isPlaying.notifyListeners();
     AudioServiceBackground.setState(
       controls: [],
       basicState: BasicPlaybackState.playing,
@@ -35,8 +45,9 @@ class Player extends BackgroundAudioTask {
   }
 
     pause() {
-      FlutterRadio.playOrPause(url: url);
-      _playing = false;
+      FlutterRadio.pause(url: url);
+      isPlaying.value = false;
+      isPlaying.notifyListeners();
       AudioServiceBackground.setState(
         controls: [],
         basicState: BasicPlaybackState.paused,
@@ -45,7 +56,8 @@ class Player extends BackgroundAudioTask {
     }
 
     stop() {
-      _playing = false;
+      isPlaying.value = false;
+      isPlaying.notifyListeners();
       FlutterRadio.stop();
       AudioServiceBackground.setState(
         controls: [],

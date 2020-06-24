@@ -14,6 +14,8 @@ import 'Models/radio_model.dart';
 import 'package:listenmoe/Pages/FAQ.dart';
 import 'package:listenmoe/Pages/Credits.dart';
 
+import 'main2.dart';
+
 ThemeData get _appTheme => ThemeData(
       scaffoldBackgroundColor: moeColor,
       textTheme: TextTheme(
@@ -36,9 +38,11 @@ ThemeData get _appTheme => ThemeData(
     );
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MaterialApp(
     theme: _appTheme,
-    home: HomePage(),
+    home: Main2( 
+    ),
   ));
 }
 

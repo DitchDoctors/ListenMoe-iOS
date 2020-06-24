@@ -39,6 +39,7 @@ mixin _Transformer on Object {
 
    Future<void> keepAlive(bool shouldBeat) {
     if (shouldBeat) {
+      print('beating');
       channel.sink.add('{"op":9}');
     }
     return null;

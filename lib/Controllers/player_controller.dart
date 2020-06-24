@@ -21,6 +21,7 @@ class _PlayerStateController extends State<PlayerController> {
   bool _isPlaying = true;
   Player _player;
   MainRadio _radio;
+  
   _PlayerStateController(RadioChoice choice) {
     _radio = MainRadio(radioChoice: choice);
   }
